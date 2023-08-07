@@ -3,7 +3,6 @@ import { Layout } from "./Layout.jsx";
 import banner from "../assets/images/bannerGestores.jpg"
 import '../assets/styles/contacto.css'
 import useFetch from '../hooks/useFetch.js'
-import TableauDashboard from "../components/TableauDashboard.jsx";
 
 export const Gestores = () => {
   const { data, isLoading } = useFetch(process.env.REACT_APP_API_URL + '/departamentos');
@@ -23,8 +22,7 @@ export const Gestores = () => {
             <hr />
           </div>
         ))
-        } 
-        <TableauDashboard urlTablero={"https://public.tableau.com/views/CMO_1/GlobalOverview?:embed=y&:embed_code_version=3&:loadOrderID=4&:display_count=y&:origin=viz_share_link"} />
+        }
       </Container>            
     </Layout>
   );

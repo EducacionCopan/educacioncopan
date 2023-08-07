@@ -91,7 +91,7 @@ export const Footer = () => {
          style={{backgroundColor: "var(--mp-rojo-1)"}}
          >
       © 2023 Copyright:
-      <br /><a className="text-white" href="https://transparencia.se.gob.hn/departamentales/departamento/4/">Departametal de Salud de Copán
+      <br /><a className="text-white" href="https://transparencia.se.gob.hn/departamentales/departamento/4/">Direccion Departamental de Educación de Copán
       </a>
     </div>
   </footer>

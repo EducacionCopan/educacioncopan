@@ -34,7 +34,7 @@ export const Home = () => {
 
   return(
     <>
-    <Layout pagina={data.area}>
+    <Layout pagina={'Educación'}>
       <Container>
         <section>
           {
