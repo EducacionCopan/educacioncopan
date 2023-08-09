@@ -71,7 +71,7 @@ export const SiteNavBar = () => {
                 align='end'
               >
                 {
-                  userData.rol !== 'Publish' ? <NavDropdown.Item href="#action/3.1">Configuracion del Sitio</NavDropdown.Item> : null
+                  userData.rol !== 'Publish' ? <NavDropdown.Item><Link to={'/admin/config'}>Configuraciones</Link></NavDropdown.Item> : null
                 }
                 
                 {

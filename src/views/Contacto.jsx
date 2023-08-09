@@ -1,13 +1,18 @@
-import { Accordion, Button, Col, Container, Form, Row, Image } from "react-bootstrap";
+import { Accordion, Button, Col, Container, Form, Row, Image, Modal } from "react-bootstrap";
 import useForm from "../hooks/useForm.js";
 import { Layout } from "./Layout.jsx";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext.js";
 import banner from "../assets/images/contacto.jpg"
 import '../assets/styles/contacto.css'
+import { LoadingScreen } from "./LoadingScreen.jsx";
+import useFetch from "../hooks/useFetch.js";
+import { ConfiguracionContactos } from "./ConfiguracionContacto.jsx";
 
 export const Contacto = () => {
   const {valid, userData} = useContext(UserContext);
+
+  const { data, isLoading } = useFetch(process.env.REACT_APP_API_URL +  `/config`);
 
   const { values, handleChange } = useForm({
     nombre: "",
@@ -24,7 +29,17 @@ export const Contacto = () => {
     console.log(values);
   };
 
+  //Modal Contacto
+  const [showContacto, setShowContacto] = useState(false);
+  const handleCloseContacto = () => setShowContacto(false);
+  const handleShowContacto = () => setShowContacto(true);
+
+  if(isLoading){
+    return <LoadingScreen />
+  }
+
   return (
+    <>
     <Layout pagina={"Contacto"}>
       <Image src={banner}
       className="animate__animated animate__fadeIn w-100" fluid/>
@@ -35,37 +50,26 @@ export const Contacto = () => {
           <Col lg={5} className="px-4">
             <h3 className="my-3">Nuestros Telefonos</h3>
             <Accordion alwaysOpen>
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>Santa Rosa de Copán</Accordion.Header>
-                <Accordion.Body>
-                  <ul>
-                    <li>Establecimiento 1: +504 9876-6789</li>
-                    <li>Establecimiento 2: +504 9876-6789</li>
-                  </ul>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="1">
-                <Accordion.Header>La Entrada</Accordion.Header>
-                <Accordion.Body>
-                  <ul>
-                    <li>Establecimiento 1: +504 9876-6789</li>
-                    <li>Establecimiento 2: +504 9876-6789</li>
-                  </ul>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="2">
-                <Accordion.Header>Copán Ruinas</Accordion.Header>
-                <Accordion.Body>
-                  <ul>
-                    <li>Establecimiento 1: +504 9876-6789</li>
-                    <li>Establecimiento 2: +504 9876-6789</li>
-                  </ul>
-                </Accordion.Body>
-              </Accordion.Item>
+              {
+                data.contactos.map((municipio, index) => (
+                  <Accordion.Item eventKey={index}>
+                    <Accordion.Header>{municipio.name}</Accordion.Header>
+                    <Accordion.Body>
+                      <ul>
+                        {
+                          municipio.referencias.map((ref, i) => (
+                            <li key={i}>{ref}</li>
+                          ))
+                        }
+                      </ul>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                ))
+              }
             </Accordion>
             {
               (valid && userData.rol !== 'Publish') ?  
-                <Button variant="warning" className="mt-3">
+                <Button variant="warning" className="mt-3" onClick={handleShowContacto}>
                   <i className="bi bi-tools"></i>{' '}Editar
                 </Button>
                 : ''
@@ -177,5 +181,9 @@ export const Contacto = () => {
         </Row>
       </Container>            
     </Layout>
+    <Modal show={showContacto} onHide={handleCloseContacto} size="lg">
+      <ConfiguracionContactos data={data.contactos} handleClose={handleCloseContacto}/>
+    </Modal>
+    </>
   );
 };

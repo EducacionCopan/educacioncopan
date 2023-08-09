@@ -2,14 +2,14 @@ import useForm from "../hooks/useForm.js";
 import { Button, Card, FloatingLabel, Form } from 'react-bootstrap';
 import { updateGeneralConfig } from "../services/config-service.js";
 
-export const Configuracion = ({data}) => {
-
+export const Configuracion = ({data, handleClose=null}) => {
   const { values, handleChange } = useForm(data);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateGeneralConfig(values)
-    window.location.reload()
+    if(!handleClose) window.location.reload();
+    handleClose()
   };
 
   return (
