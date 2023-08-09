@@ -1,9 +1,12 @@
 import { Button, Modal } from "react-bootstrap"
 import useFetch from "../hooks/useFetch";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ConfiguracionFooter } from "../views/ConfiguracionFooter";
+import { UserContext } from "../contexts/UserContext";
 
 export const Footer = () => {
+  const {valid, userData} = useContext(UserContext);
+
   const [values, setValues] = useState({});
   const { data: mongoData, isLoading } = useFetch(process.env.REACT_APP_API_URL +  `/config`);
 
@@ -102,9 +105,13 @@ export const Footer = () => {
                ><i className="fab fa-instagram"></i
               ></a>
               <div>
-            <Button variant="warning" onClick={handleShow}>
-              <i className="bi bi-tools"></i>{' '}Modificar
-            </Button> 
+            {
+              (valid && userData.rol !== 'Publish') ? 
+              <Button variant="warning" onClick={handleShow}>
+                <i className="bi bi-tools"></i>{' '}Modificar
+              </Button> 
+              : null
+            }
           </div>
           </div>
         </div>

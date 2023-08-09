@@ -4,7 +4,6 @@ import fondo from "../assets/images/fondo-main.jpg"
 import organigrama from "../assets/images/organigrama.jpg"
 import lider from "../assets/images/img-lider.jpg"
 import nosotros from "../assets/images/img-nosotros.jpg"
-import data from "../data/info-pagina.json"; 
 import '../assets/styles/home.css';
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/UserContext.js";
@@ -41,7 +40,7 @@ export const Home = () => {
 
   return(
     <>
-    <Layout pagina={data.area}>
+    <Layout pagina={'Educación'}>
       <Container>
         <section>
           {
