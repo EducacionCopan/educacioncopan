@@ -128,9 +128,7 @@ export const Footer = () => {
          style={{backgroundColor: "var(--mp-rojo-1)"}}
          >
       © 2023 Copyright:
-      <br /><a className="text-white" href={values.footerEnlace}>{values.subtitulo}
-      <br /><a className="text-white" href={values.footerEnlace}>{values.subtitulo}
-      </a>
+      <br /><a className="text-white" href={values.footerEnlace}>{values.subtitulo}</a>
     </div>
   </footer>
   <Modal show={show} onHide={handleClose} size="lg">

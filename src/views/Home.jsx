@@ -12,8 +12,6 @@ import useFetch from "../hooks/useFetch.js";
 import { LoadingScreen } from "./LoadingScreen.jsx";
 import { FrameCambiarImagen } from "../components/FrameCambiarImagen.jsx";
 import { ConfiguracionValores } from "./ConfiguracionValores.jsx";
-import { FrameCambiarImagen } from "../components/FrameCambiarImagen.jsx";
-import { ConfiguracionValores } from "./ConfiguracionValores.jsx";
 
 export const Home = () => {
   const {valid, userData} = useContext(UserContext);
