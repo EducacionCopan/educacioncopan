@@ -47,7 +47,6 @@ export const Home = () => {
               (valid && userData.rol !== 'Publish') ? 
               <>
               <Button variant="warning" className="config-button" onClick={handleShow}><i className="bi bi-tools"></i>{' '}Editar Informacion General</Button>
-              <FrameCambiarImagen show={valid}></FrameCambiarImagen>
               </>
               : ''
           }
