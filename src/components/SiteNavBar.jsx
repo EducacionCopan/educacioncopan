@@ -60,7 +60,7 @@ export const SiteNavBar = () => {
             <Link to={'/recursos'} className={`nav-link ${actual === 'recursos' ? 'active' : ''}`}><i className="bi bi-archive-fill"></i>{' '}Recursos</Link>
             {/*<Link to={'/sitios'} className="nav-link">Sitios de Interés</Link>*/}
             <Link to={'/oficios'} className={`nav-link ${actual === 'oficios' ? 'active' : ''}`}><i className="bi bi-file-medical"></i>{' '}Oficios</Link>
-            <Link to={'/gestores'} className={`nav-link ${actual === 'gestores' ? 'active' : ''}`}><i className="bi bi-people-fill"></i>{' '}Gestores</Link>
+            <Link to={'/gestores'} className={`nav-link ${actual === 'gestores' ? 'active' : ''}`}><i className="bi bi-people-fill"></i>{' '}Redes</Link>
             <Link to={'/contacto'} className={`nav-link ${actual === 'contacto' ? 'active' : ''}`}><i className="bi bi-telephone-fill"></i>{' '}Contacto</Link>
             {
               valid ? 
