@@ -14,7 +14,7 @@ const useTitle = (title) => {
   }, [data]);
 
   useEffect(() => {
-    document.title = `${title} - ${getDepto(depto)}`; 
+    document.title = `${title} - Lempira`; 
   }, [title, depto]);
 };
 

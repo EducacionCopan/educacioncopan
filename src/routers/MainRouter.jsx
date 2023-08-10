@@ -10,6 +10,7 @@ import { ToastContextProvider } from '../contexts/ToastContext'
 import { GestionRoles } from '../views/GestionRoles'
 import { Oficios } from '../views/Oficios'
 import { Gestores } from '../views/Gestores'
+import { Configuraciones } from '../views/Configuraciones'
 
 export const MainRouter = () => {
   return (
@@ -26,6 +27,7 @@ export const MainRouter = () => {
         <Route path="login" element={<Login />}></Route>
         <Route path="publicar" element={<Publicar />}></Route>
         <Route path="admin/roles" element={<GestionRoles />}></Route>
+        <Route path="admin/config" element={<Configuraciones />}></Route>
         <Route path="*" element={<Navigate to="/" replace />}/>
       </Routes>
       </ToastContextProvider>

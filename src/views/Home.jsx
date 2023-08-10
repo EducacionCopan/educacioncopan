@@ -43,14 +43,6 @@ export const Home = () => {
     <Layout pagina={'Educación'}>
       <Container>
         <section>
-          {
-              (valid && userData.rol !== 'Publish') ? 
-              <>
-              <Button variant="warning" className="config-button" onClick={handleShow}><i className="bi bi-tools"></i>{' '}Editar Informacion General</Button>
-              <FrameCambiarImagen show={valid}></FrameCambiarImagen>
-              </>
-              : ''
-          }
           <Image src={fondo} className="animate__animated animate__fadeIn" id="main-image" fluid/>
           <h1 id="main-title" className="animate__animated animate__fadeInUp">{values.titulo}</h1>
           <p id="text-departamento" className="animate__animated animate__fadeInUp">{values.subtitulo}</p>
@@ -67,7 +59,7 @@ export const Home = () => {
                 </p>
               </Col>
               <Col md={3}>
-                <FrameCambiarImagen show={valid}>
+                <FrameCambiarImagen show={userData.rol !== 'Publish'}>
                   <Image id="img-about" src={nosotros} fluid thumbnail/>
                 </FrameCambiarImagen>
               </Col>
@@ -83,7 +75,7 @@ export const Home = () => {
                 </p>
               </Col>
               <Col md={3}>
-                <FrameCambiarImagen show={valid}>
+                <FrameCambiarImagen show={userData.rol !== 'Publish'}>
                   <Image id="img-about" src={lider} fluid roundedCircle/>
                 </FrameCambiarImagen>
               </Col>
@@ -125,7 +117,7 @@ export const Home = () => {
         <section className="organigrama" id="organigrama">
           <h2 className="sub-title">Organigrama</h2>
           <div className="media-container">
-            <FrameCambiarImagen show={valid}>
+            <FrameCambiarImagen show={userData.rol !== 'Publish'}>
               <Image src={organigrama} fluid thumbnail/>
             </FrameCambiarImagen>
           </div>
