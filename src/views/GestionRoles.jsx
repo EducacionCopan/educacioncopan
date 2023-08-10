@@ -84,15 +84,15 @@ export const GestionRoles = () => {
       {/*Modal eliminar*/}
       <Modal show={showEliminar} onHide={handleCloseEliminar}>
         <Modal.Header closeButton>
-          <Modal.Title>Eliminar Publicación</Modal.Title>
+          <Modal.Title>Eliminar Usuario</Modal.Title>
         </Modal.Header>
-        <Modal.Body>¿Desea eliminar esta publicación y los archivos incluidos en la misma? Esta acción no puede revertirse.</Modal.Body>
+        <Modal.Body>¿Desea eliminar este usuario de la plataforma? Esta acción no puede revertirse.</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" className="px-3" onClick={handleCloseEliminar}>
             Volver
           </Button>
           <Button variant="danger" className="px-3" onClick={handleDelete}>
-            Eliminar Publicación
+            Eliminar Usuario
           </Button>
         </Modal.Footer>
       </Modal>
