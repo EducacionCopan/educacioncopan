@@ -59,7 +59,7 @@ export const Home = () => {
                 </p>
               </Col>
               <Col md={3}>
-                <FrameCambiarImagen show={userData.rol !== 'Publish'}>
+                <FrameCambiarImagen show={(valid && userData.rol !== 'Publish')}>
                   <Image id="img-about" src={nosotros} fluid thumbnail/>
                 </FrameCambiarImagen>
               </Col>
@@ -75,7 +75,7 @@ export const Home = () => {
                 </p>
               </Col>
               <Col md={3}>
-                <FrameCambiarImagen show={userData.rol !== 'Publish'}>
+                <FrameCambiarImagen show={(valid && userData.rol !== 'Publish')}>
                   <Image id="img-about" src={lider} fluid roundedCircle/>
                 </FrameCambiarImagen>
               </Col>
@@ -117,7 +117,7 @@ export const Home = () => {
         <section className="organigrama" id="organigrama">
           <h2 className="sub-title">Organigrama</h2>
           <div className="media-container">
-            <FrameCambiarImagen show={userData.rol !== 'Publish'}>
+            <FrameCambiarImagen show={(valid && userData.rol !== 'Publish')}>
               <Image src={organigrama} fluid thumbnail/>
             </FrameCambiarImagen>
           </div>
