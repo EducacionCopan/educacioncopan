@@ -13,12 +13,12 @@ import { ConfiguracionContactos } from "./ConfiguracionContacto";
 export const Configuraciones = () => {
   //Validacion
   const {valid, userData} = useContext(UserContext);
-  /*const navigation = useNavigate()
+  const navigation = useNavigate()
   useEffect(() => {
     if(!valid || userData.rol === 'Publish'){
       navigation('/')
     }
-  }, [valid, userData, navigation])*/
+  }, [valid, userData, navigation])
 
   const { data, isLoading } = useFetch(process.env.REACT_APP_API_URL +  `/config`);
   

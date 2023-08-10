@@ -22,6 +22,7 @@ export const Footer = () => {
 
   return (
     <>
+    <>
     <footer
           className="text-center text-lg-start text-white mt-5"
           style={{backgroundColor: "var(--mp-azul-3)"}}
@@ -32,8 +33,10 @@ export const Footer = () => {
           <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 className="text-uppercase mb-4 font-weight-bold">
               {values.titulo}
+              {values.titulo}
             </h6>
             <p>
+            {values.footerDesc}
             {values.footerDesc}
             </p>
           </div>
@@ -65,6 +68,9 @@ export const Footer = () => {
 
           <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 className="text-uppercase mb-4 font-weight-bold">Contacto</h6>
+            <p><i className="fas fa-home mr-3"></i>{values.footerDireccion}</p>
+            <p><i className="fas fa-envelope mr-3"></i>{values.footerCorreo}</p>
+            <p><i className="fas fa-phone mr-3"></i>{values.footerTelefonos}</p>
             <p><i className="fas fa-home mr-3"></i>{values.footerDireccion}</p>
             <p><i className="fas fa-envelope mr-3"></i>{values.footerCorreo}</p>
             <p><i className="fas fa-phone mr-3"></i>{values.footerTelefonos}</p>
@@ -123,9 +129,14 @@ export const Footer = () => {
          >
       © 2023 Copyright:
       <br /><a className="text-white" href={values.footerEnlace}>{values.subtitulo}
+      <br /><a className="text-white" href={values.footerEnlace}>{values.subtitulo}
       </a>
     </div>
   </footer>
+  <Modal show={show} onHide={handleClose} size="lg">
+      <ConfiguracionFooter data={values} handleClose={handleClose}/>
+  </Modal>
+  </>
   <Modal show={show} onHide={handleClose} size="lg">
       <ConfiguracionFooter data={values} handleClose={handleClose}/>
   </Modal>

@@ -12,6 +12,8 @@ import useFetch from "../hooks/useFetch.js";
 import { LoadingScreen } from "./LoadingScreen.jsx";
 import { FrameCambiarImagen } from "../components/FrameCambiarImagen.jsx";
 import { ConfiguracionValores } from "./ConfiguracionValores.jsx";
+import { FrameCambiarImagen } from "../components/FrameCambiarImagen.jsx";
+import { ConfiguracionValores } from "./ConfiguracionValores.jsx";
 
 export const Home = () => {
   const {valid, userData} = useContext(UserContext);
@@ -43,6 +45,14 @@ export const Home = () => {
     <Layout pagina={'Educación'}>
       <Container>
         <section>
+          {
+              (valid && userData.rol !== 'Publish') ? 
+              <>
+              <Button variant="warning" className="config-button" onClick={handleShow}><i className="bi bi-tools"></i>{' '}Editar Informacion General</Button>
+              <FrameCambiarImagen show={valid}></FrameCambiarImagen>
+              </>
+              : ''
+          }
           <Image src={fondo} className="animate__animated animate__fadeIn" id="main-image" fluid/>
           <h1 id="main-title" className="animate__animated animate__fadeInUp">{values.titulo}</h1>
           <p id="text-departamento" className="animate__animated animate__fadeInUp">{values.subtitulo}</p>
